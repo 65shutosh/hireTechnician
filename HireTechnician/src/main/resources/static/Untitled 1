@@ -1,0 +1,26 @@
+//JSON format for New Customer
+{
+    "name": "basu",
+    "contactNumber": "8171255190",
+    "email": "basu@gmail.com",
+    "addresses": [{
+        "locality": "HSR Layout",
+        "city": "Bengaluru",
+        "zip": 560095,
+        "landMark": "near Agara Lake"
+    }]
+}
+
+//JSON format for new Technician
+{
+    "name": "basu",
+    "contactNumber": "8171255190",
+    "email": "basu@gmail.com",
+    "govID":"353453657",
+    "address": {
+        "locality": "HSR Layout",
+        "city": "Bengaluru",
+        "zip": 560095,
+        "landMark": "near Agara Lake"
+    }
+}
