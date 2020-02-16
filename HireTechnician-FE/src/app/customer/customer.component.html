@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+      <div class="offset-3"></div>
+      <div class="col-md-6">
+        <form name="form" #f="ngForm" (ngSubmit)="newCustomerRegistration()" novalidate class="feedback-form">
+          
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text"
+                   id="name"
+                   class="form-control"
+                   name="name"
+                   placeholder="Your name"
+                   [(ngModel)]="model.name"
+            />
+          </div>
+         
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text"
+                   id="email"
+                   class="form-control"
+                   name="email"
+                   placeholder="Your email"
+                   [(ngModel)]="model.email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="customerId">Customer Id</label>
+            <input type="number"
+                   id="customerId"
+                   class="form-control"
+                   name="customerId"
+                   placeholder="Your customerId"
+                   [(ngModel)]="model.customerId"
+            />
+          </div>
+  
+          <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text"
+                   id="contactNumber"
+                   class="form-control"
+                   name="contactNumber"
+                   placeholder="Your contactNumber"
+                   [(ngModel)]="model.contactNumber"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span> Customer Registration</span>
+          </button>
+        
+          <button type="button" (click)="getAllAddressesOfACustomer(model.customerId)" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span> findAddressesUsingId</span>
+          </button>
+          <button type="button" (click)="updateCustomerContactInformation(model.customerId)" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span> UpdateContactUsingId</span>
+          </button>
+          <button type="button" (click)="addNewAddress(model.customerId)" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span>Add New Address</span>
+          </button>
+        </form>
+      </div>
+      <div class="offset-3"></div>
+    </div>
+  </div>
+  

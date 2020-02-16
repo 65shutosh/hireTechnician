@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+      <div class="offset-3"></div>
+      <div class="col-md-6">
+        <form name="form" #f="ngForm" (ngSubmit)="requestForService(model2.customerId,model2.addressId)" novalidate class="feedback-form">
+          
+          <div class="form-group">
+            <label for="serviceTaken">Service you want to request</label>
+            <input type="text"
+                   id="serviceTaken"
+                   class="form-control"
+                   name="serviceTaken"
+                   placeholder="Your serviceTaken"
+                   [(ngModel)]="model.serviceTaken"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="customerId">Customer Id</label>
+            <input type="number"
+                   id="customerId"
+                   class="form-control"
+                   name="customerId"
+                   placeholder="Your customerId"
+                   [(ngModel)]="model2.customerId"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="addressId">address Id where you want service</label>
+            <input type="number"
+                   id="addressId"
+                   class="form-control"
+                   name="addressId"
+                   placeholder="Your addressId"
+                   [(ngModel)]="model2.addressId"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span>Request Service</span>
+          </button>
+        
+          <button type="button" (click)="pendingRequest()" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span> Pending Requests</span>
+          </button>
+        
+        </form>
+      </div>
+      <div class="offset-3"></div>
+    </div>
+  </div>
+  
