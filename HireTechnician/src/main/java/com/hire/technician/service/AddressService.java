@@ -21,8 +21,16 @@ public class AddressService {
 
 	public Address getAddressDetailById(Integer addressId) {
 		Optional<Address> data = addressRepository.findById(addressId);
-		Address address = data.get();
+		Address address =null;
+		if(data.isPresent()) {
+		address = data.get();
+		}
 		return address;
+		
+	}
+
+	public List<Address> customersAddressList(int customerId) {
+		return addressRepository.customersAddressList(customerId);
 	}
 
 }

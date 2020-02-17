@@ -26,6 +26,9 @@ public class Address {
 	@ManyToOne
 	@JsonIgnore
 	private Customer customer;
+	
+	public Address() {
+	}
 
 	public Address(int id, String locality, String city, int zip, String landMark) {
 		this.id = id;

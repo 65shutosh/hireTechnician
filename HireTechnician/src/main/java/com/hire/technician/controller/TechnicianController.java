@@ -1,6 +1,7 @@
 package com.hire.technician.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hire.technician.entity.Technician;
 import com.hire.technician.service.TechnicianService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class TechnicianController {
 
@@ -42,10 +44,10 @@ public class TechnicianController {
 	}
 
 	// updating contact number for technician
-	@PutMapping(path = "/technician/updateContactNumber")
+	@PutMapping(path = "/technician/{technicianId}/updateContactNumber")
 	@ResponseBody
-	public void updateContactNumber(@RequestBody Technician technician) {
-		technicianService.updateContactNumber(technician);
+	public void updateContactNumber(@RequestBody String contact,@PathVariable("technicianId") Integer technicianId) {
+		technicianService.updateContactNumber(contact,technicianId);
 	}
 
 	// checking his availability status
@@ -58,15 +60,17 @@ public class TechnicianController {
 	// making himself unAvailable (soft delete)
 	@PutMapping(path = "/technician/unavailable/{technicianId}")
 	@ResponseBody
-	public void makeTechnicianUnAvailable(@PathVariable("technicianId") Integer technicianId) {
+	public boolean makeTechnicianUnAvailable(@PathVariable("technicianId") Integer technicianId) {
 		technicianService.makeTechnicianUnAvailable(technicianId);
+		return false;
 	}
 
 	// making himself available for service
 	@PutMapping(path = "/technician/available/{technicianId}")
 	@ResponseBody
-	public void makingAvailable(@PathVariable("technicianId") Integer technicianId) {
+	public boolean makingAvailable(@PathVariable("technicianId") Integer technicianId) {
 		technicianService.makeTechnicianAvailable(technicianId);
+		return true;
 	}
 
 }

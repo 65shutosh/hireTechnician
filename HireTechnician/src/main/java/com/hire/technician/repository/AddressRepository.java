@@ -14,4 +14,7 @@ public interface AddressRepository extends CrudRepository<Address, Integer> {
 	@Query("from Address where zip = ?1 and customer_id is null")
 	List<Address> getAllAvailableTechnicianAddressATCustomerZip(int customerZip);
 
+	@Query("from Address where customer_id =?1")
+	List<Address> customersAddressList(Integer customerId);
+
 }

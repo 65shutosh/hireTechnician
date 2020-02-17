@@ -22,7 +22,7 @@ public class Technician {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@NotNull
-	private String Name;
+	private String name;
 	@NotNull
 	private String contactNumber;
 	private String email;
@@ -56,11 +56,11 @@ public class Technician {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getContactNumber() {
@@ -113,7 +113,7 @@ public class Technician {
 
 	@Override
 	public String toString() {
-		return "Technician [id=" + id + ", Name=" + Name + ", contactNumber=" + contactNumber + ", email=" + email
+		return "Technician [id=" + id + ", Name=" + name + ", contactNumber=" + contactNumber + ", email=" + email
 				+ ", govID=" + govID + ", available=" + available + ", workingSince=" + workingSince + ", address_id="
 				+ address.getId() + ", service=" + service + "]";
 	}

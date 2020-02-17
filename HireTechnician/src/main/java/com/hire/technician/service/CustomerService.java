@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hire.technician.entity.Address;
 import com.hire.technician.entity.Customer;
 import com.hire.technician.repository.CustomerRepository;
 
@@ -25,17 +26,27 @@ public class CustomerService {
 		customerRepository.save(customer);
 	}
 
-	public void updateContactNumber(Customer customer) {
-		Optional<Customer> data = customerRepository.findById(customer.getId());
-		Customer temproryCustomer = data.get();
-		temproryCustomer.setContactNumber(customer.getContactNumber());
+	public void updateContactNumber(int id, String newContactDetail) {
+		Optional<Customer> data = customerRepository.findById(id);
+		Customer temproryCustomer =null;
+		if(data.isPresent()) {
+		temproryCustomer = data.get();
+		temproryCustomer.setContactNumber(newContactDetail);
 		customerRepository.save(temproryCustomer);
+		}
 	}
 
 	public Customer getCustomerWithId(int customerId) {
 		Optional<Customer> data = customerRepository.findById(customerId);
-		Customer customer = data.get();
+		Customer customer = null;
+		if(data.isPresent()) {
+		customer = data.get();
+		}
 		return customer;
+	}
+
+	public List<Address> customersAddressList(int customerId) {
+		return addressService.customersAddressList(customerId);
 	}
 
 }

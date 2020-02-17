@@ -32,7 +32,7 @@ public class RequestService {
 
 		List<Technician> availableTechnicianATCustomerZip = technicianService
 				.getAllAvailableTechnicianATCustomerZip(customerZip);
-		if (availableTechnicianATCustomerZip.size() == 0)
+		if (availableTechnicianATCustomerZip.isEmpty())
 			return "Sorry there is no available technician at your location";
 		else {
 			request.setTechnician(availableTechnicianATCustomerZip.get(0));
